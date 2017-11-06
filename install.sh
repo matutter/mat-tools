@@ -15,6 +15,8 @@ function add {
     if ! cmp -s "$1" "$2"; then
       echo "(changed) $2"
       echo "cp $1 $2" >> "$install_file"
+    else
+      echo "(up to date) $2"
     fi
   fi
 }
