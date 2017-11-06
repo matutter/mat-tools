@@ -21,7 +21,7 @@ while :; do
   inotifywait -qq -e modify $files
 
   if [ $bgpid -ne 0 ]; then
-    kill -9 $bgpid
+    kill -9 $bgpid 2>&1 /dev/null
   fi
 
   files=$(find_files)
