@@ -20,7 +20,7 @@ while :; do
 
   inotifywait -qq -e modify $files
 
-  if [ &bgpid -ne 0 ]; then
+  if [ $bgpid -ne 0 ]; then
     kill -9 $bgpid
   fi
 
