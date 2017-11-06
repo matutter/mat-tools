@@ -12,6 +12,14 @@ if [ -z "$cmd" ]; then
   exit
 fi
 
+function on_kill {
+  echo -e "\rStopping monitor..."
+  pkill -P $$
+  exit 0
+}
+
+trap 'on_kill' SIGINT
+
 bgpid=0
 files=$(find_files)
 echo "$(date +%s) watching > $files"  
@@ -21,7 +29,7 @@ while :; do
   inotifywait -qq -e modify $files
 
   if [ $bgpid -ne 0 ]; then
-    kill -9 $bgpid 2>&1 /dev/null
+    pkill -P $$
   fi
 
   files=$(find_files)
