@@ -65,4 +65,4 @@ if ! grep -q "$uuid" "$bashaliases"; then
   " | sed -e 's/^[ \t]*//' >> "$bashaliases"
 fi
 
-source $HOME.bashrc
+source $HOME/.bashrc
