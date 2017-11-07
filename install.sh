@@ -2,7 +2,7 @@
 
 here="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 uuid="da05bebc-bc40-11e7-8199-5b0170596c07"
-bashaliases="$(readlink -f ~/.bash_aliases)"
+bashaliases="$(readlink -f $HOME/.bash_aliases)"
 install_file='./.user-install.sh'
 
 ##
@@ -33,7 +33,7 @@ function ensure_package {
 }
 
 rm -f "$install_file"
-mkdir -p ~/.bin
+mkdir -p $HOME/.bin
 touch "$bashaliases"
 
 ensure_package "inotify-tools"
@@ -41,13 +41,13 @@ ensure_package "lolcat"
 ensure_package "cowsay"
 ensure_package "fortune"
 
-add aliases.sh           ~/.aliases.sh
-add tmux/tmux.conf       ~/.tmux.conf
-add tmux/tmux.conf.local ~/.tmux.conf.local
-add vimrc ~/.vimrc
+add aliases.sh           $HOME/.aliases.sh
+add tmux/tmux.conf       $HOME/.tmux.conf
+add tmux/tmux.conf.local $HOME/.tmux.conf.local
+add vimrc $HOME/.vimrc
 
 for file in $(ls -1 ./scripts); do
-  add "./scripts/$file" "/home/$USER/.bin/$file" 
+  add "./scripts/$file" "$HOME/.bin/$file" 
 done
 
 if [ -f "$install_file" ]; then
@@ -61,8 +61,8 @@ if ! grep -q "$uuid" "$bashaliases"; then
   echo "
     ##
     # $uuid
-    source ~/.aliases.sh
+    source $HOME/.aliases.sh
   " | sed -e 's/^[ \t]*//' >> "$bashaliases"
 fi
 
-source ~/.bashrc
+source $HOME.bashrc
