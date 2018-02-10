@@ -40,6 +40,10 @@ ensure_package "inotify-tools"
 ensure_package "lolcat"
 ensure_package "cowsay"
 ensure_package "fortune"
+ensure_package "graphviz"
+ensure_package "virtualenv"
+ensure_package "tmux"
+pip install snakefood
 
 add aliases.sh           $HOME/.aliases.sh
 add tmux/tmux.conf       $HOME/.tmux.conf

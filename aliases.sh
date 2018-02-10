@@ -8,3 +8,5 @@ alias virtualenc-enable='. ~/.bin/env-activate.sh'
 alias ssh-agent-enable='~/.bin/ssh-agent.sh'
 
 alias dev-watch='~/.bin/monitor.sh'
+
+alias graph-python="~/.bin/graph-python.sh"
