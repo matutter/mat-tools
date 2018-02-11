@@ -43,7 +43,7 @@ ensure_package "fortune"
 ensure_package "graphviz"
 ensure_package "virtualenv"
 ensure_package "tmux"
-pip install snakefood
+sudo pip install snakefood
 
 add aliases.sh           $HOME/.aliases.sh
 add tmux/tmux.conf       $HOME/.tmux.conf
