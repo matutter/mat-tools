@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function find_files {
-  find -type f -regextype posix-extended -regex '.*.([ch]|js|py)' -not -path '*/\.*' \
+  find -type f -regextype posix-extended -regex '.*.([ch]|js|py|cc|cpp)' -not -path '*/\.*' \
    | tr '\n' ' '
 }
 
